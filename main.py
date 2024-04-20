@@ -1,6 +1,7 @@
 from aiogram import Bot, Dispatcher, types, executor
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher.filters import Text
+from app import keep_alive
 
 TOKEN = '7013626156:AAFESd0ZZokfvahCjDM7lP9xJUja18iDOyU'
 
@@ -46,6 +47,7 @@ async def process_price(message: types.Message, state: types.Chat):
     else:
         await message.reply("Ошибка: Не удалось определить тип товара.")
 
+keep_alive()
 
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
